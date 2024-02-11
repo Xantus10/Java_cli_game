@@ -8,5 +8,5 @@ public class Empty extends Item {
     value = 0;
   }
 
-  public void use(Hero user) {}
+  public void use(Hero user, int ix) {}
 }

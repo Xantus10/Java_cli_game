@@ -8,10 +8,9 @@ public class Sword extends Item {
     value = aAtk;
   }
 
-  public void use(Hero user) {
-    int ix = user.findIndexOf(name);
-    Item temp = user.sword;
-    user.sword = user.getInventory()[ix];
+  public void use(Hero user, int ix) {
+    Item temp = user.weapon;
+    user.weapon = user.getInventory()[ix];
     user.getInventory()[ix] = temp;
   }
 }

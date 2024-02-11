@@ -8,8 +8,7 @@ public class Armor extends Item {
     value = aDef;
   }
 
-  public void use(Hero user) {
-    int ix = user.findIndexOf(name);
+  public void use(Hero user, int ix) {
     Item temp = user.armor;
     user.armor = user.getInventory()[ix];
     user.getInventory()[ix] = temp;

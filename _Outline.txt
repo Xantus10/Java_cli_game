@@ -26,3 +26,9 @@ Map - A 2D matrix of Biomes For now just use staticly generated. Init pos 5,5
 0,0,1,5,2,1,1,1,0,0
 0,0,2,2,2,0,0,0,0,0
           |Start
+
+Eventual content:
+Make level Entity's attribute and then incorporate it into dmg and dmgred calculations
+Add more hero options (innerhit hero and do archer, palladin, fighter, etc.)
+Save option
+Make each item have abstract effect method, with enemy and hero 'references' as args and make some items have special effect (Would require to innerhit one more time to make more subclasses)
