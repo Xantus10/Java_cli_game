@@ -15,16 +15,16 @@ public class Enemy extends Entity {
     name = aName;
     drop = new Empty("");
     xpValue = 0;
+    gold = 0;
   }
 
   public Enemy(int aHp, int aAtk, int aDef, String aName, int aXpval) {
-    hp = aHp;
-    maxhp = aHp;
-    atk = aAtk;
-    def = aDef;
-    name = aName;
-    drop = new Empty("");
+    this(aHp, aAtk, aDef, aName);
     xpValue = aXpval;
+  }
+
+  public void customGoldValue(int aGold) {
+    gold = aGold;
   }
 
   public int getXpValue() {

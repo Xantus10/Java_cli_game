@@ -18,12 +18,13 @@ public class Fields extends Biome {
         hero.giveIntoInventory(new HealPot(getRandInt(15, 40)));
       } else {
         Enemy e = new Enemy(getRandInt(25, 45), getRandInt(12, 20), getRandInt(8, 16), getEnemyName());
+        System.out.println("You just wanted to pick some flowers, but " + e.getName() + " gets in your way!");
         e.setDrop(new HealPot(getRandInt(15, 40)));
         hero.fight(e);
       }
     } else {
       System.out.println("You have been here a moment ago");
     }
-    lastMoveHere = hero.getMovesDone();
+    heroWasHere(hero);
   }
 }

@@ -22,4 +22,10 @@ public abstract class Biome {
   protected int getRandInt(int lower, int upper) {
     return randomNumberGenerator.nextInt(upper - lower + 1) + lower;
   }
+
+  // All children WILL call this at the end of lookAround, no matter what
+  protected void heroWasHere(Hero hero) {
+    lastMoveHere = hero.getMovesDone();
+    hero.incrementMovesDone();
+  }
 }

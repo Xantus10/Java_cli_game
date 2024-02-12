@@ -2,15 +2,22 @@ package entities;
 
 import items.Empty;
 import items.Item;
+import java.util.Random;
 
 public class Entity {
+  private Random randomNumberGenerator = new Random();
   protected int hp;
   protected int maxhp;
   protected int atk;
   protected int def;
   protected String name;
+  protected int gold;
   public Item armor = new Empty("");
   public Item weapon = new Empty("");
+
+  protected int getRandInt(int lower, int upper) {
+    return randomNumberGenerator.nextInt(upper - lower + 1) + lower;
+  }
 
   public float calculateDmgReduction() {
     return 1 - ((def + armor.getValue())/100);
@@ -44,6 +51,10 @@ public class Entity {
 
   public String getName() {
     return name;
+  }
+
+  public int getGold() {
+    return gold;
   }
 
   public int getHp() {

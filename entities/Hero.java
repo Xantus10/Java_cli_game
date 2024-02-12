@@ -19,7 +19,7 @@ public class Hero extends Entity {
     level = 1;
   }
 
-  public void fight(Enemy enemy) {
+  public void fight(Enemy enemy) { // MAKE MORE INTERACTIVE (RUN, ITEM, FIGHT)
     int heroDmg = calculateDmg();
     float heroDmgRed = calculateDmgReduction();
     int enemyDmg = enemy.calculateDmg();
@@ -40,8 +40,13 @@ public class Hero extends Entity {
         if (!"".equals(enemy.getDrop().getName())) {
           giveIntoInventory(enemy.getDrop());
         }
+        changeGold(enemy.getGold());
       }
     }
+  }
+
+  public void changeGold(int posOrNegChange) {
+    gold += posOrNegChange;
   }
 
   public int getMovesDone() {
