@@ -10,7 +10,7 @@ public class HealPot extends Item {
 
   public void use(Hero user, int ix) {
     user.heal(value);
-    user.getInventory()[ix] = new Empty("");
+    user.getInventory()[ix] = new Empty(""); // Maybe there can be a problem with passing by reference, then it would have to be public
   }
 
   @Override public String getPrintableInfo() {

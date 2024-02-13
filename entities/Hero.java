@@ -19,14 +19,47 @@ public class Hero extends Entity {
     level = 1;
   }
 
-  public void fight(Enemy enemy) { // MAKE MORE INTERACTIVE (RUN, ITEM, FIGHT)
+  public void fight(Enemy enemy) {
     int heroDmg = calculateDmg();
     float heroDmgRed = calculateDmgReduction();
     int enemyDmg = enemy.calculateDmg();
     float enemyDmgRed = enemy.calculateDmgReduction();
+    Scanner userInput = new Scanner(System.in);
+    String inp = "";
+    int inpInt = 0;
     while (!isDead() && !enemy.isDead()) {
-      enemy.reduceHp(Math.round(heroDmg * enemyDmgRed));
-      System.out.println("Enemy has " + Integer.toString(enemy.getHp()) + " hp!");
+      boolean tmp = true;
+      while (tmp) {
+        System.out.print("What to do?\n [1] Fight\n [2] Use item\n [3] Try to run away\n>>>");
+        inp = userInput.nextLine();
+        if (items.Item.isInteger(inp)) {
+          inpInt = Integer.parseInt(inp);
+          tmp = !(inpInt > 0 && inpInt < 4);
+        }
+      }
+      switch (inpInt) {
+        case 1:
+          enemy.reduceHp(Math.round(heroDmg * enemyDmgRed));
+          System.out.println("Enemy has " + Integer.toString(enemy.getHp()) + " hp!");
+          break;
+        case 2:
+          printInventory();
+          int ix = -1;
+          while (ix > 0 && ix <= inventory.length) {
+            System.out.print("Number of item you want to use: ");
+            ix = userInput.nextInt();
+            userInput.nextLine();
+          }
+          ix--;
+          inventory[ix].use(this, ix);
+          break;
+        case 3:
+          if (getRandInt(1, 4) <= 3) {
+            userInput.close();
+            return;
+          }
+          break;
+      }
       if (!enemy.isDead()) {
         reduceHp(Math.round(enemyDmg * heroDmgRed));
         System.out.println("You have " + Integer.toString(getHp()) + " hp!");
@@ -43,6 +76,7 @@ public class Hero extends Entity {
         changeGold(enemy.getGold());
       }
     }
+    userInput.close();
   }
 
   public void changeGold(int posOrNegChange) {

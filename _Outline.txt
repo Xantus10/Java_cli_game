@@ -11,16 +11,16 @@ Biome - Base class for all biomes on the map, absrtact visit method
 2Forest - Fight, will drop gold
 3Dark forest - Only connects to forest, Fight strong enemies, drop Items
 4Castle - Has at least one connection to Forest, Fight during nighttime strong enemies, drop Items / during daytime norm enemies, drop gold
-5Lake - Fish, chance to get gold, items, healing, fight, special encounter chance during nighttime-drops special item
+5Lake - Fish, chance to get gold, healing, fight, items, special encounter chance during nighttime-drops special item
 6Village - Buy item/healing with gold durning daytime, fight during nighttime, drop SMALL amount of gold
 Map - A 2D matrix of Biomes For now just use staticly generated. Init pos 5,5
- 
+
 0,0,0,2,1,1,0,0,0,0
 0,0,2,1,1,1,4,4,1,0
 0,2,2,1,1,1,2,2,2,0
 2,3,2,2,2,1,2,0,0,0
 2,3,2,2,2,1,2,2,0,0
-2,2,2,2,1,1,1,1,2,0 - Start
+2,3,2,2,1,1,1,1,2,0 - Start
 0,2,2,2,2,1,1,2,2,0
 0,0,2,0,0,0,1,6,1,0
 0,0,1,5,2,1,1,1,0,0
