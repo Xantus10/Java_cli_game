@@ -7,7 +7,7 @@ public class Lake extends Biome {
   public Lake() {
     enemyNames[0] = "Mist fairy";
     enemyNames[1] = "Steam illusion";
-    enemyNames[2] = "Huuuuuuge carp";
+    enemyNames[2] = "Huuuuuuge carp (At least 2m)";
     enemyNames[4] = "Angry and wet boot";
   }
 
@@ -24,7 +24,7 @@ public class Lake extends Biome {
           hero.giveIntoInventory(new HealPot(getRandInt(20, 70)));
         } else if (randValue < 24) {
           Enemy e = new Enemy(getRandInt(30, 50), getRandInt(12, 24), getRandInt(9, 14), getEnemyName(), 15);
-          System.out.println("Uh oh, you seem to have angered the " + e.getName() + " now they are coming for you!");
+          System.out.println("Uh oh, you seem to have angered the " + e.getName() + ". Now you have to fight!");
           e.customGoldValue(14);
           hero.fight(e);
         } else if (randValue < 26) {
@@ -34,12 +34,16 @@ public class Lake extends Biome {
           System.out.println("Wow you reeled in a new armor!");
           hero.giveIntoInventory(new Armor(getRandInt(7, 17)));
         } else if (!isDay()) {
+          Enemy e;
           if (randValue == 29) {
-
-          } else { ////////////////////////////////////////////////////// Make two special enemies with custom everything and then fight them (One will drop TheBestBestBest Shield - armor, the other will drop EiHaSwDiSiDiGeMa - weapon)
-
+            e = new Enemy(100, 24, 50, "Lord of depths Trogir", 40);
+            e.setDrop(new Armor("Veil of darkness", 50));
+          } else {
+            e = new Enemy(100, 50, 24, "Queen of silent waters Xespa", 40);
+            e.setDrop(new Weapon("EiHaSwDiSiDiGeMa", 50));
           }
-          System.out.println("You decided to fish at night, thats why " + e.getName() + " appeared!");
+          e.customGoldValue(30);
+          System.out.println("Uh oh, you have angered something. " + e.getName() + " is coming. R U N");
         } else {
           System.out.println("Unfortounately nothing happend");
         }

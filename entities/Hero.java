@@ -114,19 +114,19 @@ public class Hero extends Entity {
   }
 
   public void printInventory() {
-    System.out.println("INVENTORY\n" + "--------------------------");
+    System.out.println("INVENTORY\n" + "---------------------------------");
     for (int i=0; i<inventory.length; i++) {
-      System.out.println("|                        |");
-      System.out.println("| " + Integer.toString(i+1) + " " + inventory[i].getName() + " ".repeat(21 - inventory[i].getName().length()) + "|");
-      System.out.println("|                        |");
-      System.out.println("--------------------------");
+      System.out.println("|                               |");
+      System.out.println("| " + Integer.toString(i+1) + " " + inventory[i].getPrintableInfo() + " ".repeat(28 - inventory[i].getPrintableInfo().length()) + "|");
+      System.out.println("|                               |");
+      System.out.println("---------------------------------");
     }
   }
 
   public void giveIntoInventory(Item drop) {
     int ix = findIndexOf("");
     if (ix == -1) {
-      System.out.println("You can pick up " + drop.getName() + ", but your inventory is full");
+      System.out.println("You can pick up " + drop.getPrintableInfo() + ", but your inventory is full");
       printInventory();
       System.out.print("Enter the number to swap to or '0' to throw the item away: ");
       Scanner uin = new Scanner(System.in);
