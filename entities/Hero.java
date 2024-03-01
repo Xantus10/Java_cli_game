@@ -1,7 +1,6 @@
 package entities;
 
 import items.*;
-import java.util.Scanner;
 
 public class Hero extends Entity {
   private Item[] inventory = {new Empty(""), new Empty(""), new Empty(""), new Empty(""), new Empty(""), new Empty(""), new Empty(""), new Empty("")};
@@ -24,14 +23,13 @@ public class Hero extends Entity {
     float heroDmgRed = calculateDmgReduction();
     int enemyDmg = enemy.calculateDmg();
     float enemyDmgRed = enemy.calculateDmgReduction();
-    Scanner userInput = new Scanner(System.in);
     String inp = "";
     int inpInt = 0;
     while (!isDead() && !enemy.isDead()) {
       boolean tmp = true;
       while (tmp) {
         System.out.print("What to do?\n [1] Fight\n [2] Use item\n [3] Try to run away\n>>>");
-        inp = userInput.nextLine();
+        inp = Item.userInput.nextLine();
         if (items.Item.isInteger(inp)) {
           inpInt = Integer.parseInt(inp);
           tmp = !(inpInt > 0 && inpInt < 4);
@@ -47,15 +45,14 @@ public class Hero extends Entity {
           int ix = -1;
           while (ix > 0 && ix <= inventory.length) {
             System.out.print("Number of item you want to use: ");
-            ix = userInput.nextInt();
-            userInput.nextLine();
+            ix = Item.userInput.nextInt();
+            Item.userInput.nextLine();
           }
           ix--;
           inventory[ix].use(this, ix);
           break;
         case 3:
           if (getRandInt(1, 4) <= 3) {
-            userInput.close();
             return;
           }
           break;
@@ -76,7 +73,6 @@ public class Hero extends Entity {
         changeGold(enemy.getGold());
       }
     }
-    userInput.close();
   }
 
   public void changeGold(int posOrNegChange) {
@@ -129,10 +125,8 @@ public class Hero extends Entity {
       System.out.println("You can pick up " + drop.getPrintableInfo() + ", but your inventory is full");
       printInventory();
       System.out.print("Enter the number to swap to or '0' to throw the item away: ");
-      Scanner uin = new Scanner(System.in);
-      int index = uin.nextInt();
-      uin.nextLine(); // Clear the buffer
-      uin.close();
+      int index = Item.userInput.nextInt();
+      Item.userInput.nextLine(); // Clear the buffer
       index--;
       if (index >= 0 && index < inventory.length) {
         inventory[index] = drop;

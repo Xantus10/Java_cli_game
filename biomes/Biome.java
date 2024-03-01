@@ -7,7 +7,7 @@ import java.util.Random;
 public abstract class Biome {
   private Random randomNumberGenerator = new Random();
   protected String[] enemyNames = new String[4];
-  protected int lastMoveHere = 0;
+  protected int lastMoveHere = -20;
   
   public abstract void lookAround(Hero hero);
 

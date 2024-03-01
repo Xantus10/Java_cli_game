@@ -8,7 +8,7 @@ public class Fields extends Biome {
     enemyNames[0] = "Angry Mole";
     enemyNames[1] = "Moonflower";
     enemyNames[2] = "ROOTer";
-    enemyNames[4] = "Big Weed";
+    enemyNames[3] = "Big Weed";
   }
 
   public void lookAround(Hero hero) {

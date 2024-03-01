@@ -7,7 +7,7 @@ public class Forest extends Biome {
     enemyNames[0] = "Highwayman";
     enemyNames[1] = "Angry stump";
     enemyNames[2] = "Giant mushroom";
-    enemyNames[4] = "Stump remover XL";
+    enemyNames[3] = "Stump remover XL";
   }
 
   public void lookAround(Hero hero) {

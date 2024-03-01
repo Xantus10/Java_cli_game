@@ -9,7 +9,7 @@ public class DarkForest extends Biome {
     enemyNames[0] = "average looking witch";
     enemyNames[1] = "Shadow illusion";
     enemyNames[2] = "Mini Kerberos";
-    enemyNames[4] = "Shy killer";
+    enemyNames[3] = "Shy killer";
   }
 
   public void lookAround(Hero hero) {

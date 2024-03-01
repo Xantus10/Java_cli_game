@@ -1,7 +1,7 @@
 # Java cli game  
 
-The idea here is to create a simple rpg cli game written in java.  
+A simple CLI RPG game in java
 
-### NOTICE  
+## Usage
 
-This project is still under construction and not functional
+Copy the repository, go to classes and run 'java main/Main' (You have to have java installed)

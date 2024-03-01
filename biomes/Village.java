@@ -2,7 +2,6 @@ package biomes;
 
 import entities.*;
 import items.*;
-import java.util.Scanner;
 
 public class Village extends Biome {
   public Village() {}
@@ -12,10 +11,8 @@ public class Village extends Biome {
       System.out.println("You visit the local shop in hopes of finding something good");
       System.out.println("Your gold: " + Integer.toString(hero.getGold()) + "g");
       System.out.print("\nWelcome to Dorby's, what do you want to buy?\n [1] Healing potion (50) - 50g\n [2] Great sword (20 atk) - 75g\n [3] Iron chestplate (20 def) - 80g\n [0] Leave\n> ");
-      Scanner uin = new Scanner(System.in);
-      int index = uin.nextInt();
-      uin.nextLine(); // Clear the buffer
-      uin.close();
+      int index = Item.userInput.nextInt();
+      Item.userInput.nextLine(); // Clear the buffer
       switch (index) {
         case 1:
           if (hero.getGold() >= 50) {

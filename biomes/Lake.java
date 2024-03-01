@@ -8,7 +8,7 @@ public class Lake extends Biome {
     enemyNames[0] = "Mist fairy";
     enemyNames[1] = "Steam illusion";
     enemyNames[2] = "Huuuuuuge carp (At least 2m)";
-    enemyNames[4] = "Angry and wet boot";
+    enemyNames[3] = "Angry and wet boot";
   }
 
   public void lookAround(Hero hero) {

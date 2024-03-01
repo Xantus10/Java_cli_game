@@ -1,6 +1,7 @@
 package items;
 
 import java.util.Random;
+import java.util.Scanner;
 
 import entities.Hero;
 
@@ -10,6 +11,8 @@ public abstract class Item {
   // Ideally not longer than 20 chars
   protected String name;
   protected String[] names = {"", "", "", ""};
+
+  public static Scanner userInput = new Scanner(System.in);
 
   public static boolean isInteger(String str) {
     if (str == null) {

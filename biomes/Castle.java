@@ -9,7 +9,7 @@ public class Castle extends Biome {
     enemyNames[0] = "Regular knight";
     enemyNames[1] = "Painting in shining armor";
     enemyNames[2] = "Corpse in shackles";
-    enemyNames[4] = "Angsty bath robe";
+    enemyNames[3] = "Angsty bath robe";
   }
 
   public void lookAround(Hero hero) {
